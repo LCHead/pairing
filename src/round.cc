@@ -20,6 +20,7 @@ Round::~Round(){--m_total_rounds;}
 
 // Getter functions
 int Round::roundID(){return m_roundid;}
+int Round::getRoundCount(){return m_total_rounds;}
 
 // Setter functions
 void Round::setRoundID(int round){m_roundid = round;}

@@ -20,6 +20,7 @@ class Round{
 
         int roundID();
         void setRoundID(int round);
+        static int getRoundCount();
 
     private:
         int m_roundid;
