@@ -12,10 +12,8 @@ using namespace std;
 class Player{
 
     public:
-        static int m_total_players;
-
-        Player();
         Player(string firstname, string surname, string gender, int birthyear, double rating, string fed);
+        Player(const Player& player);
         ~Player();
 
         int id();
@@ -41,6 +39,8 @@ class Player{
         // TODO: round details
 
     private:
+        static int m_total_players;
+
         // Player details
         int m_id;
         string m_firstname;
@@ -49,7 +49,7 @@ class Player{
         int m_birthyear;
         double m_rating;
         string m_fed;           // Federation
-
+        
         // Pairing details
         double m_score;
         vector<double> m_score_by_round;

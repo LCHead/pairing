@@ -7,11 +7,7 @@
 
 using namespace std;
 
-// Constructors
-Player::Player(){
-    //TODO
-    ++m_total_players;
-}
+// Constructors and destructors
 Player::Player(string firstname, string surname, string gender, int birthyear, double rating, string fed){
     m_id = 0;                      // TODO
     m_firstname = firstname;
@@ -29,6 +25,7 @@ Player::Player(string firstname, string surname, string gender, int birthyear, d
 
     ++m_total_players;
 }
+Player::Player(const Player& player) : m_firstname(player.m_firstname), m_surname(player.m_surname), m_gender(player.m_gender), m_birthyear(player.m_birthyear), m_rating(player.m_rating), m_fed(player.m_fed) {++m_total_players;}
 Player::~Player(){--m_total_players;}
 
 // Getter functions
