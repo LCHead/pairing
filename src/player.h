@@ -15,7 +15,7 @@ class Player{
         static int m_total_players;
 
         Player();
-        Player(string firstname, string surname, string gender, int birthyear, double rating);
+        Player(string firstname, string surname, string gender, int birthyear, double rating, string country);
         ~Player();
 
         int id();
@@ -24,16 +24,18 @@ class Player{
         string gender();
         int birthyear();
         double rating();
+        string country();
 
         double score();
+        static int getPlayerCount();
         // TODO: round details
-        int getPlayerCount();
 
         void setFirstname(string firstname);
         void setSurname(string surname);
         void setGender(string gender);
         void setBirthyear(int birthyear);
         void setRating(double rating);
+        void setCountry(string country);
 
         void setScore(double score);
         // TODO: round details
@@ -46,6 +48,7 @@ class Player{
         string m_gender;
         int m_birthyear;
         double m_rating;
+        string m_country;
 
         // Pairing details
         double m_score;
