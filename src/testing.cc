@@ -5,20 +5,25 @@
 #include <vector>
 #include <string>
 #include "player.h"
+#include "round.h"
 
 using namespace std;
 
 int main(){
 
-    // Initialise
-    string name = "Joe";
-    string surname = "Bloggs";
-    double rating = 2000.0;
-    string gender = "M";
-    int birthyear = 1990;
+    // Testing players
+    Player joe1 = Player("Joe","Bloggs","M",1990,2000.0,"USA");
+    Player joe2 = Player("Joe","Bloggs","M",1990,2000.0,"USA");
+    Player joe3 = Player("Joe","Bloggs","M",1990,2000.0,"USA");
+    Player joe4 = Player("Joe","Bloggs","M",1990,2000.0,"USA");
 
-    // Testing
-    Player joe = Player(name,surname,gender,birthyear,rating);
-    cout << joe.firstname() << endl;
+    // Find total number of players
+    cout << "Number of players = " << Player::getPlayerCount() << endl;
 
+    // Testing rounds
+    Round round1 = Round();
+    Round round2 = Round(2);
+    Round round3 = Round(1);
+
+    cout << "Number of rounds = " << Round::getRoundCount() << endl;
 }
