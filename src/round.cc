@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Constructors and Destructor
+// Constructors and destructors
 Round::Round(){
     m_roundid = 1;
     ++m_total_rounds;
@@ -16,6 +16,7 @@ Round::Round(int round){
     m_roundid = round;
     ++m_total_rounds;
 }
+Round::Round(const Round& round) : m_roundid(round.m_roundid){++m_total_rounds;}
 Round::~Round(){--m_total_rounds;}
 
 // Getter functions

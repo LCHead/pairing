@@ -12,10 +12,9 @@ using namespace std;
 class Round{
 
     public:
-        static int m_total_rounds;
-
         Round();
         Round(int round);
+        Round(const Round& round);
         ~Round();
 
         int roundID();
@@ -23,8 +22,9 @@ class Round{
         static int getRoundCount();
 
     private:
-        int m_roundid;
+        static int m_total_rounds;
 
+        int m_roundid;
 };
 
 #endif
