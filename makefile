@@ -17,7 +17,6 @@ OBJECTS = $(OBJDIR)/player.o $(OBJDIR)/round.o $(OBJDIR)/testing.o
 # Build executable
 all: $(BINDIR)/$(TARGET)
 
-
 # Make sure directory paths exist
 $(OBJDIR) $(BINDIR):
 	mkdir -p $@
@@ -36,7 +35,6 @@ $(OBJDIR)/round.o : $(SRCDIR)/round.cc $(SRCDIR)/round.h
 $(OBJDIR)/testing.o : $(SRCDIR)/testing.cc
 
 # Clean
-
 clean:
 	@rm -f $(OBJDIR)/*.o
 veryclean: clean
