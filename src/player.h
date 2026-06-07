@@ -10,11 +10,13 @@
 using namespace std;
 
 class Player{
+
     public:
         static int m_total_players;
 
         Player();
         Player(string firstname, string surname, string gender, int birthyear, double rating);
+        ~Player();
 
         int id();
         string firstname();
@@ -25,6 +27,7 @@ class Player{
 
         double score();
         // TODO: round details
+        int getPlayerCount();
 
         void setFirstname(string firstname);
         void setSurname(string surname);

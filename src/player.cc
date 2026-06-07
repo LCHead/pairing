@@ -10,6 +10,7 @@ using namespace std;
 // Constructors
 Player::Player(){
     //TODO
+    ++m_total_players;
 }
 Player::Player(string firstname, string surname, string gender, int birthyear, double rating){
     m_id = 0;                      // TODO
@@ -24,7 +25,10 @@ Player::Player(string firstname, string surname, string gender, int birthyear, d
     m_score_by_round = {};
     m_colours_by_round = {};
     m_bye_by_round = {};
+
+    ++m_total_players;
 }
+Player::~Player(){--m_total_players;}
 
 // Getter functions
 int Player::id(){return m_id;}
@@ -34,6 +38,7 @@ string Player::gender(){return m_gender;}
 int Player::birthyear(){return m_birthyear;}
 double Player::rating(){return m_rating;}
 double Player::score(){return m_score;}
+int Player::getPlayerCount(){return m_total_players;}
 
 // Setter functions
 void Player::setFirstname(string firstname){m_firstname = firstname;}
