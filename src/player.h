@@ -12,6 +12,12 @@ using namespace std;
 class Player{
 
     public:
+        struct round_details{
+            Player* opponent;
+            double result;
+            char colour;
+        };
+
         Player(string firstname, string surname, string gender, int birthyear, double rating, string fed);
         Player(const Player& player);
         ~Player();
@@ -26,7 +32,7 @@ class Player{
 
         double score();
         static int getPlayerCount();
-        // TODO: round details
+        round_details getRoundDetails(const int round_number);
 
         void setFirstname(string firstname);
         void setSurname(string surname);
@@ -35,8 +41,13 @@ class Player{
         void setRating(double rating);
         void setFed(string fed);
 
-        void setScore(double score);
-        // TODO: round details
+        void setScore(double score);            // set the score to a fixed value
+        void updateScore(double score);         // add to the score
+        void addRound(round_details round);        // add details of round to scoresheet
+
+        // Pairing details
+        double m_score;
+        vector<round_details> m_round;
 
     private:
         static int m_total_players;
@@ -48,13 +59,8 @@ class Player{
         string m_gender;
         int m_birthyear;
         double m_rating;
-        string m_fed;           // Federation
+        string m_fed;           // Federation   
         
-        // Pairing details
-        double m_score;
-        vector<double> m_score_by_round;
-        vector<char> m_colours_by_round;
-        vector<double> m_bye_by_round;
 };
 
 #endif

@@ -9,6 +9,7 @@ using namespace std;
 
 // Constructors and destructors
 Player::Player(string firstname, string surname, string gender, int birthyear, double rating, string fed){
+
     m_id = 0;                      // TODO
     m_firstname = firstname;
     m_surname = surname;
@@ -19,9 +20,7 @@ Player::Player(string firstname, string surname, string gender, int birthyear, d
 
     // Initialise to 0 or empty
     m_score = 0.;
-    m_score_by_round = {};
-    m_colours_by_round = {};
-    m_bye_by_round = {};
+    m_round = {};
 
     ++m_total_players;
 }
@@ -46,7 +45,9 @@ void Player::setGender(string gender){m_gender = gender;}
 void Player::setBirthyear(int birthyear){m_birthyear = birthyear;}
 void Player::setRating(double rating){m_rating = rating;}
 void Player::setScore(double score){m_score = score;}
+void Player::updateScore(double score){m_score += score;}
 void Player::setFed(string fed){m_fed = fed;}
+void Player::addRound(round_details round){m_round.push_back(round);}
 
 // Initialise count
 int Player::m_total_players = 0; 
