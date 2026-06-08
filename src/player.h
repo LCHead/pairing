@@ -22,6 +22,8 @@ class Player{
         Player(const Player& player);
         ~Player();
 
+        static Player createBye();
+
         int id();
         string firstname();
         string surname();
@@ -32,7 +34,9 @@ class Player{
 
         double score();
         static int getPlayerCount();
-        round_details getRoundDetails(const int round_number);
+        
+        bool IsBye() const;
+        // round_details getRoundDetails(const int round_number);
 
         void setFirstname(string firstname);
         void setSurname(string surname);
@@ -60,7 +64,11 @@ class Player{
         int m_birthyear;
         double m_rating;
         string m_fed;           // Federation   
-        
+        bool m_isbye;
+
+        // Bye player constructor
+        struct tag_bye{};
+        Player(tag_bye);
 };
 
 #endif

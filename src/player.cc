@@ -17,15 +17,21 @@ Player::Player(string firstname, string surname, string gender, int birthyear, d
     m_birthyear = birthyear;
     m_rating = rating;
     m_fed = fed;
+    m_isbye = false;
 
     // Initialise to 0 or empty
     m_score = 0.;
     m_round = {};
 
     ++m_total_players;
+
 }
-Player::Player(const Player& player) : m_firstname(player.m_firstname), m_surname(player.m_surname), m_gender(player.m_gender), m_birthyear(player.m_birthyear), m_rating(player.m_rating), m_fed(player.m_fed) {++m_total_players;}
-Player::~Player(){--m_total_players;}
+Player::Player(const Player& player) : m_firstname(player.m_firstname), m_surname(player.m_surname), m_gender(player.m_gender), m_birthyear(player.m_birthyear), m_rating(player.m_rating), m_fed(player.m_fed), m_isbye(player.m_isbye) {++m_total_players;}
+Player::~Player(){if (!m_isbye) --m_total_players;}
+
+// Bye
+Player::Player(tag_bye) : m_firstname("BYE"), m_surname(""), m_gender(""), m_birthyear(0), m_rating(0.0), m_fed(""), m_isbye(true) {}
+Player Player::createBye() {return Player(tag_bye{});}
 
 // Getter functions
 int Player::id(){return m_id;}
@@ -37,6 +43,7 @@ double Player::rating(){return m_rating;}
 double Player::score(){return m_score;}
 string Player::fed(){return m_fed;}
 int Player::getPlayerCount(){return m_total_players;}
+bool Player::IsBye() const {return m_isbye;}
 
 // Setter functions
 void Player::setFirstname(string firstname){m_firstname = firstname;}
