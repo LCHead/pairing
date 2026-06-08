@@ -10,7 +10,7 @@ CXXFLAGS = -std=c++17 -Wall -Wextra
 
 # Target and objects
 TARGET = test
-OBJECTS = $(OBJDIR)/player.o $(OBJDIR)/round.o $(OBJDIR)/testing.o
+OBJECTS = $(OBJDIR)/player.o $(OBJDIR)/round.o $(OBJDIR)/general.o $(OBJDIR)/debug.o $(OBJDIR)/testing.o
 
 .PHONY: all clean veryclean
 
@@ -32,6 +32,8 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.cc | $(OBJDIR)
 # Dependencies
 $(OBJDIR)/player.o : $(SRCDIR)/player.cc $(SRCDIR)/player.h
 $(OBJDIR)/round.o : $(SRCDIR)/round.cc $(SRCDIR)/round.h
+$(OBJDIR)/general.o : $(SRCDIR)/general.cc $(SRCDIR)/general.h
+$(OBJDIR)/debug.o : $(SRCDIR)/debug.cc $(SRCDIR)/debug.h
 $(OBJDIR)/testing.o : $(SRCDIR)/testing.cc
 
 # Clean
