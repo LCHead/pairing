@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <string>
+#include "player.h"
 
 using namespace std;
 
@@ -19,6 +20,10 @@ class Round{
 
         int roundID();
         void setRoundID(int round);
+
+        void playGame(Player* white,Player* black,const double score_white,const double score_black);   // game
+        void playGame(Player* player, Player* bye, const double score);     // bye
+
         static int getRoundCount();
 
     private:
