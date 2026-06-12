@@ -36,6 +36,22 @@ void Round::updateTPNs(vector<Player>& playerlist){
     // strongest player gets tpn=1, second strongest tpn=2 etc. 
     for (int i=0; i<static_cast<int>(playerlist.size()); i++){playerlist[i].setTPN(i+1);}
 }
+void Round::orderPlayers(vector<Player*>& playerlist){
+    // Order players by 1) score. 2) tpn (ascending order)
+
+    sort(playerlist.begin(),playerlist.end(),[](Player* a, Player* b){
+        if (a->score() != b->score()) return a->score() > b->score();
+        return a->tpn() < b->tpn();}
+    );
+}
+void Round::orderPlayers(vector<Player>& playerlist){
+    // Order players by 1) score. 2) tpn (ascending order)
+
+    sort(playerlist.begin(),playerlist.end(),[](Player a, Player b){
+        if (a.score() != b.score()) return a.score() > b.score();
+        return a.tpn() < b.tpn();}
+    );
+}
 
 // Game functions
 void Round::playGame(Player* white,Player* black,const double score_white,const double score_black){

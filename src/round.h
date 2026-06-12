@@ -24,6 +24,8 @@ class Round{
 
         void updateTPNs(vector<Player*>& playerlist);
         void updateTPNs(vector<Player>& playerlist);
+        void orderPlayers(vector<Player*>& playerlist);
+        void orderPlayers(vector<Player>& playerlist);
 
         static int getRoundCount();
 
