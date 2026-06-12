@@ -7,8 +7,6 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 class Player{
 
     public:
@@ -18,19 +16,19 @@ class Player{
             char colour;
         };
 
-        Player(string firstname, string surname, string gender, int birthyear, double rating, string fed);
+        Player(std::string firstname, std::string surname, std::string gender, int birthyear, double rating, std::string fed);
         Player(const Player& player);
         ~Player();
 
         static Player createBye();
 
-        int id();
-        string firstname();
-        string surname();
-        string gender();
+        int tpn();
+        std::string firstname();
+        std::string surname();
+        std::string gender();
         int birthyear();
         double rating();
-        string fed();
+        std::string fed();
 
         double score();
         static int getPlayerCount();
@@ -38,12 +36,13 @@ class Player{
         bool IsBye() const;
         // round_details getRoundDetails(const int round_number);
 
-        void setFirstname(string firstname);
-        void setSurname(string surname);
-        void setGender(string gender);
+        void setTPN(int tpn);
+        void setFirstname(std::string firstname);
+        void setSurname(std::string surname);
+        void setGender(std::string gender);
         void setBirthyear(int birthyear);
         void setRating(double rating);
-        void setFed(string fed);
+        void setFed(std::string fed);
 
         void setScore(double score);            // set the score to a fixed value
         void updateScore(double score);         // add to the score
@@ -51,19 +50,19 @@ class Player{
 
         // Pairing details
         double m_score;
-        vector<round_details> m_round;
+        std::vector<round_details> m_round;
 
     private:
         static int m_total_players;
 
         // Player details
-        int m_id;
-        string m_firstname;
-        string m_surname;
-        string m_gender;
+        int m_tpn;
+        std::string m_firstname;
+        std::string m_surname;
+        std::string m_gender;
         int m_birthyear;
         double m_rating;
-        string m_fed;           // Federation   
+        std::string m_fed;           // Federation   
         bool m_isbye;
 
         // Bye player constructor
