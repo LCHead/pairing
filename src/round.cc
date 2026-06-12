@@ -29,7 +29,13 @@ void Round::updateTPNs(vector<Player*>& playerlist){
     // strongest player gets tpn=1, second strongest tpn=2 etc. 
     for (int i=0; i<static_cast<int>(playerlist.size()); i++){playerlist[i]->setTPN(i+1);}
 }
-
+void Round::updateTPNs(vector<Player>& playerlist){
+    // sort player list by rating (descending order)
+    sort(playerlist.begin(),playerlist.end(),[](Player a, Player b){return a.rating() > b.rating();});
+    
+    // strongest player gets tpn=1, second strongest tpn=2 etc. 
+    for (int i=0; i<static_cast<int>(playerlist.size()); i++){playerlist[i].setTPN(i+1);}
+}
 
 // Game functions
 void Round::playGame(Player* white,Player* black,const double score_white,const double score_black){

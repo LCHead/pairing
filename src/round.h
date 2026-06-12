@@ -23,6 +23,7 @@ class Round{
         void playGame(Player* player, Player* bye, const double score);     // bye
 
         void updateTPNs(vector<Player*>& playerlist);
+        void updateTPNs(vector<Player>& playerlist);
 
         static int getRoundCount();
 
