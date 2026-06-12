@@ -48,12 +48,12 @@ class Player{
         void updateScore(double score);         // add to the score
         void addRound(round_details round);        // add details of round to scoresheet
 
+    private:
+        static int m_total_players;
+
         // Pairing details
         double m_score;
         std::vector<round_details> m_round;
-
-    private:
-        static int m_total_players;
 
         // Player details
         int m_tpn;

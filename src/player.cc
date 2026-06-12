@@ -8,7 +8,11 @@
 // Constructors and destructors
 Player::Player(std::string firstname, std::string surname, std::string gender, int birthyear, double rating, std::string fed){
 
+    // Initialise to 0 or empty
+    m_score = 0.0;
+    m_round = {};
     m_tpn = 0;                     // TODO
+
     m_firstname = firstname;
     m_surname = surname;
     m_gender = gender;
@@ -17,14 +21,9 @@ Player::Player(std::string firstname, std::string surname, std::string gender, i
     m_fed = fed;
     m_isbye = false;
 
-    // Initialise to 0 or empty
-    m_score = 0.;
-    m_round = {};
-
     ++m_total_players;
-
 }
-Player::Player(const Player& player) : m_firstname(player.m_firstname), m_surname(player.m_surname), m_gender(player.m_gender), m_birthyear(player.m_birthyear), m_rating(player.m_rating), m_fed(player.m_fed), m_isbye(player.m_isbye) {++m_total_players;}
+Player::Player(const Player& player) : m_score(player.m_score), m_round(player.m_round), m_tpn(player.m_tpn), m_firstname(player.m_firstname), m_surname(player.m_surname), m_gender(player.m_gender), m_birthyear(player.m_birthyear), m_rating(player.m_rating), m_fed(player.m_fed), m_isbye(player.m_isbye){++m_total_players;}
 Player::~Player(){if (!m_isbye) --m_total_players;}
 
 // Bye
