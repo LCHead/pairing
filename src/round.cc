@@ -1,6 +1,7 @@
 // Source file for round
 // Begun 06/06/26
 
+#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -47,7 +48,7 @@ void Round::orderPlayers(vector<Player*>& playerlist){
 void Round::orderPlayers(vector<Player>& playerlist){
     // Order players by 1) score. 2) tpn (ascending order)
 
-    sort(playerlist.begin(),playerlist.end(),[](Player a, Player b){
+    sort(playerlist.begin(),playerlist.end(),[](Player& a, Player& b){
         if (a.score() != b.score()) return a.score() > b.score();
         return a.tpn() < b.tpn();}
     );
