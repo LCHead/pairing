@@ -4,17 +4,15 @@
 #include <vector>
 #include "player.h"
 
-using namespace std;
-
 template <typename T>
 bool descending(T a, T b){return a > b;}
 
 template <typename T> 
-void getPointers(vector<T>& objectList, vector<T*>& pointerList)
+void getPointers(std::vector<T>& objectList, std::vector<T*>& pointerList)
 {
     for (T& obj : objectList){pointerList.push_back(&obj);}
 }
 
-void updateWithByes(vector<int>& indexList, vector<Player*>& byePlayers, vector<Player*>& roundPlayers);
+void updateWithByes(std::vector<int>& indexList, std::vector<Player*>& byePlayers, std::vector<Player*>& roundPlayers);
 
 #endif
