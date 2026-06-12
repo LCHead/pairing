@@ -1,7 +1,6 @@
 // Source file for round
 // Begun 06/06/26
 
-#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <string>
