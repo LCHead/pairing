@@ -1,21 +1,16 @@
 // Source file for round
 // Begun 06/06/26
 
+#include <algorithm>
 #include <vector>
 #include <string>
 #include "round.h"
 #include "player.h"
 
-using namespace std;
-
 // Constructors and destructors
 Round::Round(){
-    m_roundid = 1;
     ++m_total_rounds;
-}
-Round::Round(int round){
-    m_roundid = round;
-    ++m_total_rounds;
+    m_roundid = m_total_rounds;
 }
 Round::Round(const Round& round) : m_roundid(round.m_roundid){++m_total_rounds;}
 Round::~Round(){--m_total_rounds;}
@@ -26,6 +21,15 @@ int Round::getRoundCount(){return m_total_rounds;}
 
 // Setter functions
 void Round::setRoundID(int round){m_roundid = round;}
+
+void Round::updateTPNs(vector<Player*>& playerlist){
+    // sort player list by rating (descending order)
+    sort(playerlist.begin(),playerlist.end(),[](Player* a, Player* b){return a->rating() > b->rating();});
+    
+    // strongest player gets tpn=1, second strongest tpn=2 etc. 
+    for (int i=0; i<static_cast<int>(playerlist.size()); i++){playerlist[i]->setTPN(i+1);}
+}
+
 
 // Game functions
 void Round::playGame(Player* white,Player* black,const double score_white,const double score_black){

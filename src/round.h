@@ -5,7 +5,6 @@
 #define ROUND_H
 
 #include <vector>
-#include <string>
 #include "player.h"
 
 using namespace std;
@@ -14,7 +13,6 @@ class Round{
 
     public:
         Round();
-        Round(int round);
         Round(const Round& round);
         ~Round();
 
@@ -23,6 +21,8 @@ class Round{
 
         void playGame(Player* white,Player* black,const double score_white,const double score_black);   // game
         void playGame(Player* player, Player* bye, const double score);     // bye
+
+        void updateTPNs(vector<Player*>& playerlist);
 
         static int getRoundCount();
 
