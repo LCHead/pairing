@@ -7,19 +7,20 @@
 #include <vector>
 #include "player.h"
 
-using namespace std;
-
-void printPlayerNames(const vector<Player*>& playerList){
-    for (Player* p : playerList){cout << p->firstname() << ", " << p->surname() << endl;}
+void printPlayerNames(const std::vector<Player*>& playerList){
+    for (Player* p : playerList){std::cout << p->firstname() << ", " << p->surname() << std::endl;}
 }
 
-void printPlayerRoundResult(Player* p, const int round_number){
-    Player* opponent = p->m_round[round_number-1].opponent;
+void printPlayerRoundResult(Player* player, const int round_number){
+    Player* opponent = player->m_round[round_number-1].opponent;
 
-    cout << p->firstname() << ", " << p->surname() << endl;
-    cout << "round " << round_number << endl;
-    cout << "played : " << opponent->firstname() << ", " << opponent->surname() << endl;
-    cout << "result : " << p->m_round[round_number-1].result << endl;
-    cout << "colour : " << p->m_round[round_number-1].colour << endl;
+    std::cout << player->firstname() << ", " << player->surname() << std::endl;
+    std::cout << "round " << round_number << std::endl;
+    std::cout << "played : " << opponent->firstname() << ", " << opponent->surname() << std::endl;
+    std::cout << "result : " << player->m_round[round_number-1].result << std::endl;
+    std::cout << "colour : " << player->m_round[round_number-1].colour << std::endl;
+}
 
+void printPlayerScore(Player* player){
+    std::cout << player->firstname() << ", " << player->surname() << ", score = " <<  player->score() << std::endl;
 }

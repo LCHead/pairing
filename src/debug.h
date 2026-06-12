@@ -8,10 +8,9 @@
 #include <vector>
 #include "player.h"
 
-using namespace std;
-
-void printPlayerNames(const vector<Player*>& playerList);
+void printPlayerNames(const std::vector<Player*>& playerList);
 void printPlayerRoundResult(Player* player, const int round_number);
+void printPlayerScore(Player* player);
 
 #endif
 
